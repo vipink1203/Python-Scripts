@@ -1,8 +1,9 @@
-__author__ = "Vipin Kumar"
-__version__ = "0.0.1"
-__maintainer__ = "Vipin Kumar"
-__status__ = "Production"
+"""
+The aim of this script is to decrypt the encrypted file using KMS key.
 
+Author: Vipin Kumar V
+Website: https://www.vipinkumar.me/
+"""
 
 import base64
 import boto3
