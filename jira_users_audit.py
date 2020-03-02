@@ -26,15 +26,6 @@ def pd_works():
     df_wo_nev['jira_months'] = ((df_wo_nev['current_date'] - df_wo_nev['last_seen_jira'])/np.timedelta64(1, 'M')).astype(int)
     df_months = df_wo_nev.loc[(df_wo_nev['jira_months'] >= 3)]
     df_months = df_months.drop(columns=['current_date'])
-    exceptions = ['devsecops-wrike@aetnd.com', 'devops@aenetworks.com', 'jiradigital@aenetworks.com', 'cs-support@aenetworks.com',
-                'devops-evident@aetnd.com', 'cw_aenetworks@contentwise.tv', 'international@aenetworks.legal',
-                'technology@aenetworks.legal', 'corporate@aenetworks.legal', 'devsecops-centrify@aetnd.com', 
-                'mobile-integrations@aenetworks.com']
-    df_months = df_months[(~df_months['email'].isin(exceptions))]
-    never_exceptions = ['contentservicesteam@aenetworks.com', 'cssupport@aetndigital.com',
-                    'devops-support@aenetworks.com', 'devsecops-sf@aetnd.com', 'devops-redscout@aetv.com', 
-                    'devops-tvgla@aetv.com', 'SVODesign@aenetworks.com']
-    df_n_logon = df_n_logon[(~df_n_logon['email'].isin(never_exceptions))]
 
 ## Writing the final output
     path = r"./jira_audit_report.xlsx"
