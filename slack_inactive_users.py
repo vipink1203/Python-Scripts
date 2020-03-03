@@ -9,6 +9,7 @@ Website: https://www.vipinkumar.me/
 import json
 import requests
 import time
+import sys
 
 class bcolors:
     HEADER = '\033[95m'
@@ -43,7 +44,8 @@ if len(inactive_users) != 0:
     time.sleep(2.4)
 else:
     print(bcolors.OKGREEN + 'All good!!! No inactive users were found.' + bcolors.ENDC)
-
+    sys.exit(0)
+    
 for inact in inactive_users:
     url2 = 'https://slack.com/api/users.info' + str('?') + str('user=') + str(inact)
     url2res = requests.get(url2, headers=head)
