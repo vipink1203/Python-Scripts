@@ -1,7 +1,10 @@
 '''
-Purpose: This script is used for delete the Databricks jobs assuming that you have a txt file with all the job ids in each line
+Purpose: This script is used for deleting bulk jobs in Databricks. You need to have a txt file with all the job ids in each line to make this script work.
 Author: @vipink1203
 '''
+
+## TOKEN - Databricks token set as env variable on your machine
+## <workspace-url> - Replace with your Databricks workspace url
 
 import os
 import json
