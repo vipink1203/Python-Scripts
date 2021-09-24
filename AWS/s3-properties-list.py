@@ -30,7 +30,7 @@ for i in range(len(response1['Buckets'])):
     name = response1['Buckets'][i]['Name']
     try:
         logging = client.get_bucket_logging(Bucket=name)
-        p = logging[u'LoggingEnabled']
+        p = logging['LoggingEnabled']
         if p is not None:
             print(bcolors.OKGREEN + 'Enabled: ' + name + bcolors.ENDC)
     except Exception:
@@ -41,7 +41,7 @@ for i in range(len(response1['Buckets'])):
     name = response1['Buckets'][i]['Name']
     try:
         response2 = client.get_bucket_encryption(Bucket=name)
-        p = response2[u'ServerSideEncryptionConfiguration']
+        p = response2['ServerSideEncryptionConfiguration']
         if p is not None:
             print(bcolors.OKGREEN + 'Enabled: ' + name + bcolors.ENDC)
     except Exception:
@@ -51,7 +51,7 @@ print('\n' + bcolors.HEADER + 20*'*' + 'Checking S3 Bucket Versioning' + 20*'*' 
 for i in range(len(response1['Buckets'])):
     name = response1['Buckets'][i]['Name']
     bucket_versioning = client.get_bucket_versioning(Bucket=name)
-    p = bucket_versioning[u'Status']
+    p = bucket_versioning['Status']
     if p == 'Enabled':
         print(bcolors.OKGREEN + 'Enabled: ' + name + bcolors.ENDC)
     else:
