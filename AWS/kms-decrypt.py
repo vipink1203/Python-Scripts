@@ -10,6 +10,8 @@ kms = boto3.client('kms')
 
 
 def decrypt_key():
+    """Decrypting the encrypted file"""
+
     with open("EncryptedFile", "rb") as f:
         byte = f.read()
         resp = kms.decrypt(CiphertextBlob=byte)
